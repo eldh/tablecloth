@@ -88,6 +88,8 @@ let partition t ~f = Belt.List.partition t f
 
 let fold t ~initial ~f = Belt.List.reduce t initial f
 
+let fold_left = fold
+
 let count t ~f =
   fold t ~initial:0 ~f:(fun total element ->
       total + match f element with true -> 1 | false -> 0)
@@ -308,6 +310,7 @@ let initialize length ~f = Belt.List.makeBy length f
 let forEach t ~f = (Belt.List.forEach t f : unit)
 
 let for_each = forEach
+let iter = forEach
 
 let forEachWithIndex t ~f = (Belt.List.forEachWithIndex t f : unit)
 

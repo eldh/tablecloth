@@ -597,6 +597,7 @@ val flatMap : 'a t -> f:('a -> 'b t) -> 'b t
 val flat_map : 'a t -> f:('a -> 'b t) -> 'b t
 
 val fold : 'a t -> initial:'b -> f:('b -> 'a -> 'b) -> 'b
+val fold_left : 'a t -> initial:'b -> f:('b -> 'a -> 'b) -> 'b
 (** Transform a list into a value
 
     After applying [f] to every element of the list, [fold] returns the accumulator.
@@ -772,6 +773,7 @@ val unzip : ('a * 'b) t -> 'a t * 'b t
 (** {1 Iterate} *)
 
 val forEach : 'a t -> f:('a -> unit) -> unit
+val iter : 'a t -> f:('a -> unit) -> unit
 (** Iterates over the elements of invokes [f] for each element.
 
     The function you provide must return [unit], and the [forEach] call itself also returns [unit].
